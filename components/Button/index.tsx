@@ -13,7 +13,7 @@ interface Props {
   reference?: LegacyRef<HTMLButtonElement>;
   classes?: string;
   children?: string | ReactNode;
-  onClick?(): any;
+  onClick?(): void;
 }
 
 export default function Button(props: Props): ReactElement {
@@ -30,14 +30,13 @@ export default function Button(props: Props): ReactElement {
     children,
     onClick,
   } = props;
-  // See NB in README.md
+  // See TailwindCSS Notes in README.md
   const bgClasses = [bgColor === 'none' && 'bg-transparent'];
-  const textClasses = [''];
+  const textClasses = [textColor !== '' && textColor];
   const hoverClasses = [
-    '',
     (hoverEffect || animate) && 'transition-colors duration-300',
   ];
-  const sizeClasses = [''];
+  const sizeClasses = [size !== '' && size];
   const fontClasses = [fontWeight === 'normal' && 'font-normal'];
 
   return (

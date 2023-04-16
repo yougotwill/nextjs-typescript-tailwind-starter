@@ -19,7 +19,7 @@ export default function CustomHead(props: Props): ReactElement {
   const imageALT = metadata?.OG_IMAGE?.ALT ?? METADATA.OG_IMAGE.ALT;
   let imageWidth = metadata?.OG_IMAGE?.WIDTH ?? METADATA.OG_IMAGE.WIDTH;
   let imageHeight = metadata?.OG_IMAGE?.HEIGHT ?? METADATA.OG_IMAGE.HEIGHT;
-  let imageUrl = (() => {
+  const imageUrl = (() => {
     if (!metadata?.OG_IMAGE?.URL)
       return `${METADATA.HOST_URL}${METADATA.OG_IMAGE.URL}`;
     if (metadata?.OG_IMAGE?.URL && isLocalLink(metadata.OG_IMAGE.URL)) {

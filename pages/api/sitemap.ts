@@ -3,6 +3,12 @@ import getConfig from 'next/config';
 import { readdirSync } from 'fs';
 import METADATA from '@/constants/metadata';
 
+export interface IRedirection {
+  source: string;
+  destination: string;
+  permanent: boolean;
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -35,7 +41,7 @@ export default async function handler(
     });
 
   const redirectPages = getConfig().serverRuntimeConfig.redirects.map(
-    (redirect: any) => {
+    (redirect: IRedirection) => {
       if (redirect.source.includes(':slug')) {
         return '';
       } else {

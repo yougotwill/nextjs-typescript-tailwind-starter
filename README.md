@@ -48,9 +48,23 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - Uses [classnames](https://www.npmjs.com/package/classnames) to organise our classes into groups that combine at build time.
 
-### Tailwind Style Guide
+### Committing changes
 
-#### React
+Before a commit is accepted the staged changes will be formatted using [prettier](https://prettier.io/) and linted using [eslint](https://eslint.org/). The commit will be reverted if files are formatted or lint errors are returned.
+
+#### Commit Message Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+Commit messages will be checked using [husky](https://typicode.github.io/husky/#/) and [commitlint](https://commitlint.js.org/).
+
+### TailwindCSS
+
+#### Class organisation
+
+This helps with readability and is encouraged. Consider it to be a guideline and not a set of rules.
+
+##### React
 
 ```jsx
   <div className={classNames(
@@ -63,7 +77,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   )}></div>
 ```
 
-#### CSS
+##### Custom CSS classes
 
 Any custom CSS classes should be written in [globals.css](styles/globals.css).
 
@@ -77,7 +91,7 @@ Any custom CSS classes should be written in [globals.css](styles/globals.css).
 }
 ```
 
-### Notes
+#### Notes
 
 - We can't use template literals with classes if we want to purge the CSS.
   - https://github.com/tailwindlabs/tailwindcss/issues/2209#issuecomment-677855297
